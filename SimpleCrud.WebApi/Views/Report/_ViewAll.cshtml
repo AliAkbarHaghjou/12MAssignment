@@ -1,0 +1,19 @@
+﻿@model IEnumerable<STViewModel>
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.SiraNo).Titled("SiraNo");
+        columns.Add(model => model.IslemTur).Titled("IslemTur");
+        columns.Add(model => model.Tarih).Titled("Tarih");
+        columns.Add(model => model.GirisMiktar).Titled("GirisMiktar");
+        columns.Add(model => model.CikisMiktar).Titled("CikisMiktar");
+    })
+    .Empty("No data found")
+    .Pageable(pager =>
+    {
+        pager.PagesToDisplay = 5;
+        pager.RowsPerPage = 10;
+    })
+    .Sortable()
+)
